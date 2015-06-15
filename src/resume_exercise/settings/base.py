@@ -13,6 +13,7 @@ from os.path import dirname, join, exists
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(dirname(__file__)))
 STATICFILES_DIRS = [join(BASE_DIR, 'static')]
+#STATIC_ROOT=STATICFILES_DIRS[0]
 MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 
@@ -75,9 +76,13 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
+    'datetimewidget',
 
     'profiles',
     'accounts',
+    
+    
+    #'bootstrap3',
 	'resume',  # Because standard practice is to split the app from the 
 	           # encompassing application, though this wouldn't really be 
 			   # necessary in this case.
@@ -132,6 +137,8 @@ ALLOWED_HOSTS = []
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+CRISPY_FAIL_SILENTLY = False
+
 # For Bootstrap 3, change error alert to 'danger'
 from django.contrib import messages
 MESSAGE_TAGS = {
@@ -140,7 +147,7 @@ MESSAGE_TAGS = {
 
 # Authentication Settings
 AUTH_USER_MODEL = 'authtools.User'
-LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
+LOGIN_REDIRECT_URL = reverse_lazy("resume:main")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails

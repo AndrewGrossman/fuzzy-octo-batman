@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %} 
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Resume{% endblock %}
+
+{% block container %}
+{{ form.media }}
+<div class="container profile-head">
+  <div class="row">
+    <div class="col-sm-10">
+		{% crispy form %}
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+
+<div class="container profile-body">
+  <div class="row">
+    <div class="col-sm-4">
+		We could put some stuff here
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
