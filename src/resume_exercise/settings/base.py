@@ -57,8 +57,9 @@ if exists(env_file):
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
 #SECRET_KEY = env('SECRET_KEY')
-#FIXME : Have a secret key for now just to get going. More consideration would be given in production.  # AGG 2015/6/14
-SECRET_KEY='ASDFA@#gf@FDAFFJSERTHESH^thersthesthae4sHAESTHAE$SHTesthehESHES$the4sthe4sTHse4THe4sTHSeHe4sth$SethSHSehEStmJ'
+#FIXME : Have a secret key for now just to get going. 
+#        More consideration would be given in production.  # AGG 2015/6/14
+SECRET_KEY='ASDFA@#gf@FDAFFJSERTHESH^thersthesthae4sHAESTHAE$SHTesthe'
 
 
 ALLOWED_HOSTS = []
@@ -80,6 +81,9 @@ INSTALLED_APPS = (
 
     'profiles',
     'accounts',
+	'resume',  # Because standard practice is to split the app from the 
+	           # encompassing application, though this wouldn't really be 
+			   # necessary in this case.
 
 )
 
