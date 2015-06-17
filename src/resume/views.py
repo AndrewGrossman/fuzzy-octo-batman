@@ -38,16 +38,20 @@ class PositionFormMixin(PositionObjectMixin, ModelFormMixin):
             # windows, and submits something stale. Of course, CSRF is likely to blow that up anyway.
             kwargs['data'].update({'user': self.request.user.id})  # Force this to be the user that is logged in.
 
+            def convert_month_year_field(value):
+                try:
+                    return datetime.datetime.strptime(value, "%B %Y").strftime(formats.get_format('DATE_INPUT_FORMATS')[0])
+                except ValueError:
+                    return value  # Let the field validator handle it
+
             # Really, this should be cleaned on the field or the form, but it was easier to just do it here.
             if 'employment_start_date' in kwargs['data'] and kwargs['data']['employment_start_date'].strip():
                 kwargs['data']['employment_start_date'] = \
-                    datetime.datetime.strptime(kwargs['data']['employment_start_date'], "%B %Y"). \
-                        strftime(formats.get_format('DATE_INPUT_FORMATS')[0])
+                    convert_month_year_field(kwargs['data']['employment_start_date'])
 
             if 'employment_end_date' in kwargs['data'] and kwargs['data']['employment_end_date'].strip():
                 kwargs['data']['employment_end_date'] = \
-                    datetime.datetime.strptime(kwargs['data']['employment_end_date'], "%B %Y"). \
-                        strftime(formats.get_format('DATE_INPUT_FORMATS')[0])
+                    convert_month_year_field(kwargs['data']['employment_end_date'])
 
         kwargs['is_update'] = self.is_update
 
