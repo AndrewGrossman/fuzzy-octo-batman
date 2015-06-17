@@ -2,7 +2,7 @@
 
 # ZF Django Résumé Exercise
 
-ZF Django Résumé Exercise is an application geared towards reviewing and showing off some various Django skills. It is built with [Python][0] using the [Django Web Framework][1].
+ZF Django Résumé Exercise is an application geared towards reviewing and showing off some various Django skills. 
 
 This project has the following basic app that did not come with the Django edge template:
 
