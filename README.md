@@ -6,7 +6,7 @@ ZF Django Resume Exercise is an application geared towards reviewing and showing
 
 This project has the following basic app that did not come with the Django edge template:
 
-* App3 (short desc)
+* Resume (An app for inputting a user's job history and displaying that history in a resume format)
 
 ## Installation
 
@@ -24,13 +24,9 @@ Install all dependencies:
 
     pip install -r requirements.txt
 
-Run migrations:
+The git repository comes with a ready database. Feel free to delete it (src/db.sqlite3) and run migrations for a fresh database:
 
     python manage.py migrate
 
-### Detailed instructions
+This project made use of the [Django Edge template](http://django-edge.readthedocs.org/), as well as [Django Crispy Forms](http://django-crispy-forms.readthedocs.org/), and the [Bootstrap themed Django DateTime Widget](https://github.com/asaglimbeni/django-datetime-widget).
 
-Take a look at the docs for more information.
-
-[0]: https://www.python.org/
-[1]: https://www.djangoproject.com/
