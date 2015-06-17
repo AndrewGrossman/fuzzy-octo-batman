@@ -42,3 +42,8 @@ Given how resumes are structured, I opted to remove the day part of the employme
 
 I would have liked to get the start date and end date fields on the same line on the position form, but that incantation was becoming an overly difficult task for something of this magnitude. I also might have added having a user start on the position adding page, rather than on the blank resume display.
 
+## Known bugs
+
+* The date field calendar widgets do not respond well to when invalid dates are in the text part of the field.
+* The date field text format does not redisplay properly as Month Year when form errors are returned.
+
