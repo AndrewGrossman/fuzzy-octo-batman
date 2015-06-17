@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %} 
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Resume{% endblock %}
+
+{% block container %}
+<div class="resume-head"/> {# css tricks #}
+
+<div class="container resume-body">
+  {% block resume_body_head %}{% endblock %}
+{{ form.media }}
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+		{% crispy form %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %} 
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Resume{% endblock %}
+
+{% block container %}
+
+  <div class="resume-head"/>
+
+  <div class="container resume-body">
+    {% for position in positions %}
+    <div class="row">
+      <div class="col-sm-6">
+        {% include "resume/position_detail.html" %}
+      </div>
+      <div class="col-sm-offset-6">
+        <h4>
+          <a href="{% url "resume:position_update" position.id %}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+          <a href="{% url "resume:position_delete" position.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        </h4>
+      </div>
+    </div>
+      <div class="row"><div class="col-sm-12"><hr class="position-divider"/></div></div>
+    {% endfor positions %}
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="{% url "resume:position_add" %}">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <span>Add an{% if positions %}other{% endif %} entry</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+

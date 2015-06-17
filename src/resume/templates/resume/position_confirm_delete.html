@@ -1,0 +1,15 @@
+{% extends "resume/position_form.html" %}
+
+{% block title %}{{ block.super }} - Delete Position{% endblock %}
+
+{% block resume_body_head %}
+  {% with position=object %}
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        {% include "resume/position_detail.html" %}
+      </div>
+    </div>
+  {% endwith %}
+{% endblock %}
+
+

@@ -1,0 +1,8 @@
+<h4>{{ position.title }} for {{ position.company }} </h4>
+    <ul><li>{{ position.employment_start_date | date:"N Y" }} -
+    {% if position.employment_end_date %}
+        {{position.employment_end_date | date:"N Y"}}
+    {% else %}
+        Present
+    {% endif %}</li>
+    <li>{{ position.location }}</li></ul>
