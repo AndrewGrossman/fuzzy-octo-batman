@@ -45,5 +45,5 @@ I would have liked to get the start date and end date fields on the same line on
 ## Known bugs
 
 * The date field calendar widgets do not respond well to when invalid dates are in the text part of the field.
-* The date field text format does not redisplay properly as Month Year when form errors are returned.
+* The date field text does not redisplay properly as Month Year when form errors are returned.
 
