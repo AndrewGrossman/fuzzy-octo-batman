@@ -1,5 +1,10 @@
 from django.conf.urls import url
-from . import views
+
+# Attempt to handle path issues in environments that I do not have access to properly debug
+try:
+    from . import views
+except ImportError:
+    from resume.models import views
 
 urlpatterns = [
     #url(r'^$', views.PositionListView.as_view(), name='position-list'),

@@ -1,11 +1,19 @@
 from django.forms import ModelForm, Form
-from models import Position
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, Div, HTML
 from django.forms.widgets import HiddenInput
 from django.forms import ValidationError
 from django.utils.translation import ugettext as _
 from datetime import date
+
+# Attempt to handle path issues in environments that I do not have access to properly debug
+try:
+    from models import Position
+except ImportError:
+    try:
+        from .models import Position
+    except ImportError:
+        from resume.models import Position
 
 from datetimewidget.widgets import DateWidget
 

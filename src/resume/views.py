@@ -3,8 +3,19 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormVi
 from django.views.generic.detail import SingleObjectTemplateResponseMixin
 from django.db.models import Count
 from braces.views import LoginRequiredMixin
-from models import Position
-from forms import PositionForm, PositionConfirmDeleteForm
+
+# Attempt to handle path issues in environments that I do not have access to properly debug
+try:
+    from models import Position
+    from forms import PositionForm, PositionConfirmDeleteForm
+except ImportError:
+    try:
+        from .models import Position
+        from .forms import PositionForm, PositionConfirmDeleteForm
+    except ImportError:
+        from resume.models import Position
+        from resume.forms import PositionForm, PositionConfirmDeleteForm
+
 import datetime
 from django.utils import formats
 
